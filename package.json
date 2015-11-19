@@ -1,0 +1,27 @@
+{
+  "name": "cssfmt.js",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilich/cssfmt.js.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Ilya Verbitskiy",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/ilich/cssfmt.js/issues"
+  },
+  "homepage": "https://github.com/ilich/cssfmt.js#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "css": "^2.2.1"
+  }
+}
