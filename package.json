@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "cssfmt": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ilich/cssfmt.js.git"
