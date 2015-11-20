@@ -25,4 +25,5 @@ $ npm link
     -V, --version        output the version number
     -t, --tabs           use tabs instead of spaces for indentation
     -i, --indent <size>  set indentation size. The option is ignored if -t switch has been used.
+    -c, --compress       compredd CSS file
 ```

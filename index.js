@@ -15,7 +15,8 @@ var cssfmt = (function() {
 			.description("Apply CSS formatting guidelines to a file")
 			.usage("[options] file")
 			.option("-t, --tabs", "use tabs instead of spaces for indentation")
-			.option("-i, --indent <size>", "set indentation size. The option is ignored if -t switch has been used.", 4);
+			.option("-i, --indent <size>", "set indentation size. The option is ignored if -t switch has been used.", 4)
+			.option("-c, --compress", "compredd CSS file");
 			
 		program.parse(process.argv);
 		if (program.args.length === 0) {
@@ -35,18 +36,28 @@ var cssfmt = (function() {
 		
 		var content = fs.readFileSync(cssFile, "utf8");
 		var ast = css.parse(content);
-		var indent = "";
-		if (program.tabs) {
-			indent = "\t";
+		
+		var options = null;
+		if (program.compress) {
+			options = {
+				compress: true
+			}
 		} else {
-			for (var i = 0; i < program.indent; i++) {
-				indent += " ";
+			var indent = "";
+			if (program.tabs) {
+				indent = "\t";
+			} else {
+				for (var i = 0; i < program.indent; i++) {
+					indent += " ";
+				}
+			}	
+			
+			options = {
+				indent: indent
 			}
 		}
 		
-		content = css.stringify(ast, {
-			indent: indent
-		});
+		content = css.stringify(ast, options);
 		
 		fs.writeFileSync(cssFile, content);
 		console.log("DONE.")
